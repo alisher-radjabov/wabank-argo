@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wabank-nodejs-deploy
+  namespace: nodejs-backend
+  labels:
+    app: wabank-nodejs-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: wabank-nodejs-deploy
+  template:
+    metadata:
+      labels:
+        app: wabank-nodejs-deploy
+    spec:
+      containers:
+      - name: wabank-nodejs-deploy
+        image: wabankcontainerragistry.azurecr.io/nodejs-deposit:latest
+        # env:
+        # - name: POSTGRES_DB_JDBC_URL
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: wabank-postgres-db-secret
+        #       key: POSTGRES_DB_JDBC_URL
+        # - name: POSTGRES_DB_USERNAME
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: wabank-postgres-db-secret
+        #       key: POSTGRES_DB_USERNAME
+        # - name: POSTGRES_DB_PASSWORD
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: wabank-postgres-db-secret
+        #       key: POSTGRES_DB_PASSWORD
+        # - name: AZURE_BLOB_STORAGE_CONNECTION_STRING
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: storage-secret
+        #       key: AZURE_BLOB_STORAGE_CONNECTION_STRING
+        # - name: AZURE_COMMUNICATION_CONNECTION_STRING
+        #   valueFrom:
+        #     configMapKeyRef: 
+        #       name: wabank-email-connect
+        #       key: AZURE_COMMUNICATION_CONNECTION_STRING     
+        # - name: WABANK_SENDER_EMAIL_ADDRESS
+        #   valueFrom:
+        #     configMapKeyRef: 
+        #       name: wabank-email-connect
+        #       key: WABANK_SENDER_EMAIL_ADDRESS 
+        # ports:
+        # - containerPort: 8080
+        # readinessProbe:
+        #   httpGet:
+        #     path: /wabank/swagger-ui/index.html
+        #     port: 8080
+        #   periodSeconds: 3
+        #   timeoutSeconds: 1
+        # livenessProbe:
+        #   httpGet:
+        #     path: /wabank/swagger-ui/index.html
+        #     port: 8080
+        #   initialDelaySeconds: 3
+        #   periodSeconds: 3
