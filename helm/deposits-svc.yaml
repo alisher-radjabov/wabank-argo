@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: wabank-nodejs-deploy
+  name: deposits-svc
+  namespace: nodejs-backend
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: wabank-nodejs-deploy
+  type: ClusterIP
