@@ -1,12 +1,12 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-wabank
+  name: ingress-deposits
   namespace: nodejs-backend
 spec:
   ingressClassName: nginx
   # rules:
-  # - host: dev.wabank.io
+  # - host: dev.wabank.org
   #   http:
   #     paths:
   #     - path: /
