@@ -17,7 +17,8 @@ spec:
     spec:
       containers:
       - name: wabank-nodejs-deploy
-        image: wabankcontainerragistry.azurecr.io/nodejs-deposit:latest
+        image: nginx:stable-alpine3.21-perl
+        # image: wabankcontainerragistry.azurecr.io/nodejs-deposit:latest
         # env:
         # - name: POSTGRES_DB_JDBC_URL
         #   valueFrom:
