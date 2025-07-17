@@ -18,6 +18,8 @@ spec:
       containers:
       - name: wabank-nodejs-deploy
         image: wabankcontainerregistry.azurecr.io/nodejs-deposit:latest
+      imagePullSecrets:
+      - name: acr-secret
         # env:
         # - name: POSTGRES_DB_JDBC_URL
         #   valueFrom:
