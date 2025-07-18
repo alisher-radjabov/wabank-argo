@@ -21,28 +21,28 @@ spec:
       imagePullSecrets:
       - name: acr-secret
         env:
-        - name: PGHOST
+        - name: PG_HOST
           valueFrom:
             secretKeyRef:
               name: db-connect-secret
-              key: PGHOST
-        - name: PGPORT
+              key: PG_HOST
+        - name: PG_PORT
           valueFrom:
             secretKeyRef:
               name: db-connect-secret
-              key: PGPORT
-        - name: PGUSER
+              key: PG_PORT
+        - name: PG_USER
           valueFrom:
             secretKeyRef:
               name: db-connect-secret
-              key: PGUSER
-        - name: PGDATABASE
+              key: PG_USER
+        - name: PG_DATABASE
           valueFrom:
             secretKeyRef:
               name: db-connect-secret
               key: PGDATABASE
-        - name: PGPASSWORD
+        - name: PG_PASSWORD
           valueFrom:
             secretKeyRef:
               name: db-connect-secret
-              key: PGPASSWORD
+              key: PG_PASSWORD
