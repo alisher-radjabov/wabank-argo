@@ -18,31 +18,31 @@ spec:
       containers:
       - name: wabank-nodejs-deploy
         image: wabankcontainerregistry.azurecr.io/nodejs-deposit:latest
-      imagePullSecrets:
-      - name: acr-secret
-        env:
-          - name: PG_HOST
-            valueFrom:
-              secretKeyRef:
-                name: db-connect-secret
-                key: PG_HOST
-          - name: PG_PORT
-            valueFrom:
-              secretKeyRef:
-                name: db-connect-secret
-                key: PG_PORT
-          - name: PG_USER
-            valueFrom:
-              secretKeyRef:
-                name: db-connect-secret
-                key: PG_USER
-          - name: PG_DATABASE
-            valueFrom:
-              secretKeyRef:
-                name: db-connect-secret
-                key: PGDATABASE
-          - name: PG_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: db-connect-secret
-                key: PG_PASSWORD
+      # imagePullSecrets:
+      # - name: acr-secret
+      #   env:
+      #     - name: PG_HOST
+      #       valueFrom:
+      #         secretKeyRef:
+      #           name: db-connect-secret
+      #           key: PG_HOST
+      #     - name: PG_PORT
+      #       valueFrom:
+      #         secretKeyRef:
+      #           name: db-connect-secret
+      #           key: PG_PORT
+      #     - name: PG_USER
+      #       valueFrom:
+      #         secretKeyRef:
+      #           name: db-connect-secret
+      #           key: PG_USER
+      #     - name: PG_DATABASE
+      #       valueFrom:
+      #         secretKeyRef:
+      #           name: db-connect-secret
+      #           key: PGDATABASE
+      #     - name: PG_PASSWORD
+      #       valueFrom:
+      #         secretKeyRef:
+      #           name: db-connect-secret
+      #           key: PG_PASSWORD
