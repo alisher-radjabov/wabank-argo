@@ -31,16 +31,16 @@ spec:
               secretKeyRef:
                 name: db-connect-secret
                 key: PG_PORT
-          - name: PG_USER
+          - name: PG_USERNAME
             valueFrom:
               secretKeyRef:
                 name: db-connect-secret
-                key: PG_USER
-          - name: PG_DATABASE
+                key: PG_USERNAME
+          - name: PG_NAME
             valueFrom:
               secretKeyRef:
                 name: db-connect-secret
-                key: PGDATABASE
+                key: PG_NAME
           - name: PG_PASSWORD
             valueFrom:
               secretKeyRef:
