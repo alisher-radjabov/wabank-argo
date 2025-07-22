@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wabank-nodejs-deploy
-  namespace: nodejs-backend
+  namespace: nodejs-dev
   labels:
     app: wabank-nodejs-deploy
 spec:
@@ -21,28 +21,28 @@ spec:
       imagePullSecrets:
       - name: acr-secret
         env:
-          - name: PG_HOST
-            valueFrom:
-              secretKeyRef:
-                name: db-connect-secret
-                key: PG_HOST
-          - name: PG_PORT
-            valueFrom:
-              secretKeyRef:
-                name: db-connect-secret
-                key: PG_PORT
           - name: PG_USERNAME
             valueFrom:
               secretKeyRef:
-                name: db-connect-secret
+                name: pg-secret
                 key: PG_USERNAME
-          - name: PG_NAME
-            valueFrom:
-              secretKeyRef:
-                name: db-connect-secret
-                key: PG_NAME
           - name: PG_PASSWORD
             valueFrom:
               secretKeyRef:
-                name: db-connect-secret
+                name: pg-secret
                 key: PG_PASSWORD
+          - name: PG_HOST
+            valueFrom:
+              configMapKeyRef:
+                name: pg-configmap
+                key: PG_HOST
+          - name: PG_NAME
+            valueFrom:
+              configMapKeyRef:
+                name: pg-configmap
+                key: PG_NAME
+          - name: PG_PORT
+            valueFrom:
+              configMapKeyRef:
+                name: pg-configmap
+                key: PG_PORT

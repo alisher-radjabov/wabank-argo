@@ -4,7 +4,7 @@ metadata:
   labels:
     app: wabank-nodejs-deploy
   name: deposits-svc
-  namespace: nodejs-backend
+  namespace: nodejs-dev
 spec:
   ports:
   - port: 8080

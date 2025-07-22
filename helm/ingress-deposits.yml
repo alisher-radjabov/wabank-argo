@@ -2,7 +2,7 @@
 # kind: Ingress
 # metadata:
 #   name: ingress-deposits
-#   namespace: nodejs-backend
+#   namespace: nodejs-dev
 # spec:
 #   ingressClassName: nginx
 #   # rules:
