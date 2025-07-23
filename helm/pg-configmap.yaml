@@ -4,6 +4,7 @@ metadata:
   name: pg-configmap
   namespace: nodejs-dev
 data:
-  PG_HOST: wabank-postgresql.postgres.database.azure.com
+  # PG_HOST: wabank-postgresql.postgres.database.azure.com
+  PG_HOST: wabank-postgresql-private-endpoint.nic.12feb52c-82b7-455d-b9e4-0cd358c7da99
   PG_NAME: nodejs-dev
   PG_PORT: "5432"
