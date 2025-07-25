@@ -10,6 +10,11 @@ spec:
   selector:
     matchLabels:
       app: wabank-nodejs-deploy
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
   template:
     metadata:
       labels:
@@ -17,32 +22,32 @@ spec:
     spec:
       containers:
       - name: wabank-nodejs-deploy
-        env:
-          - name: PG_USERNAME
-            valueFrom:
-              secretKeyRef:
-                name: pg-secret
-                key: PG_USERNAME
-          - name: PG_PASSWORD
-            valueFrom:
-              secretKeyRef:
-                name: pg-secret
-                key: PG_PASSWORD
-          - name: PG_HOST
-            valueFrom:
-              configMapKeyRef:
-                name: pg-configmap
-                key: PG_HOST
-          - name: PG_NAME
-            valueFrom:
-              configMapKeyRef:
-                name: pg-configmap
-                key: PG_NAME
-          - name: PG_PORT
-            valueFrom:
-              configMapKeyRef:
-                name: pg-configmap
-                key: PG_PORT
         image: wabankcontainerregistry.azurecr.io/nodejs-deposit:latest
-        imagePullSecrets:
-          - name: acr-secret
+        env:
+        - name: PG_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: pg-secret
+              key: PG_USERNAME
+        - name: PG_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: pg-secret
+              key: PG_PASSWORD
+        - name: PG_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: pg-configmap
+              key: PG_HOST
+        - name: PG_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: pg-configmap
+              key: PG_NAME
+        - name: PG_PORT
+          valueFrom:
+            configMapKeyRef:
+              name: pg-configmap
+              key: PG_PORT
+      imagePullSecrets:
+      - name: acr-secret
