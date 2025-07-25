@@ -18,8 +18,6 @@ spec:
       containers:
       - name: wabank-nodejs-deploy
         image: wabankcontainerregistry.azurecr.io/nodejs-deposit:latest
-      imagePullSecrets:
-      - name: acr-secret
         env:
           - name: PG_USERNAME
             valueFrom:
@@ -46,3 +44,5 @@ spec:
               configMapKeyRef:
                 name: pg-configmap
                 key: PG_PORT
+        imagePullSecrets:
+          - name: acr-secret
