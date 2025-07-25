@@ -22,7 +22,7 @@ spec:
     spec:
       containers:
       - name: wabank-nodejs-deploy
-        image: wabankcontainerregistry.azurecr.io/nodejs-deposit:latest
+        image: wabankcontainerregistry.azurecr.io/nodejs-deposit-dev:latest
         env:
         - name: PG_USERNAME
           valueFrom:
